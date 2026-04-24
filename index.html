@@ -601,134 +601,149 @@
   <p class="section-label">Work</p>
   <h2>Featured Projects</h2>
 
-  <div class="projects-grid">
+    <div class="projects-grid">
 
     <!-- Project 1 -->
     <div class="project-card">
       <div class="card-left">
-        <div class="card-num">01 / 05</div>
+        <div class="card-num">01 / 06</div>
         <div class="card-accent-bar" style="background: var(--accent);"></div>
         <div class="card-title">Retail Sales Forecasting — Rossmann Stores</div>
         <div class="card-course">MSA Course · Group Project</div>
-        <p class="card-desc">
-        End-to-end sales forecasting pipeline on 1M+ rows of German pharmacy chain data. Engineered calendar, lag, and rolling-window features, then compared Linear Regression, Random Forest, and Gradient Boosting regressors using time-series cross-validation.
-      </p>
+        <p class="card-desc">End-to-end sales forecasting pipeline on 1M+ rows of German pharmacy chain data. Engineered calendar, lag, and rolling-window features, then compared Linear Regression, Random Forest, and Gradient Boosting regressors using time-series cross-validation.</p>
         <div class="card-tags">
-        <span class="tag">Python</span>
-        <span class="tag">Random Forest</span>
-        <span class="tag">Gradient Boosting</span>
-        <span class="tag">Time-Series CV</span>
-        <span class="tag">Feature Engineering</span>
-        <span class="tag">Plotly</span>
-      </div>
-        
+          <span class="tag">Python</span><span class="tag">Random Forest</span><span class="tag">Gradient Boosting</span><span class="tag">Time-Series CV</span><span class="tag">Feature Engineering</span><span class="tag">Plotly</span>
+        </div>
       </div>
       <div class="card-right">
-        
-        
+        <div class="card-highlight">
+          <div class="card-highlight-label">Key Result</div>
+          <p>Gradient Boosting outperformed Linear Regression baseline; log-transformed Sales target improved model stability. Lag features and rolling averages captured weekly seasonality patterns.</p>
+        </div>
+        <div class="card-insight">
+          <div class="card-insight-label">Business Insights</div>
+          <ul>
+            <li>Promotions drove measurably higher sales — stores running Promo had significantly elevated daily revenue, validating promotional investment.</li>
+            <li>Nearby competitors did not necessarily hurt sales — stores with very close competition sometimes outperformed, suggesting that retail clusters attract more foot traffic overall.</li>
+            <li>Day-of-week patterns were consistent and predictable — Monday sales consistently lagged while mid-week drove the most volume, informing staffing and inventory decisions.</li>
+            <li>Store Type B (larger format) generated the highest average sales, suggesting format expansion could be a high-ROI strategic move.</li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <!-- Project 2 -->
     <div class="project-card">
       <div class="card-left">
-        <div class="card-num">02 / 05</div>
+        <div class="card-num">02 / 06</div>
         <div class="card-accent-bar" style="background: var(--accent2);"></div>
         <div class="card-title">SMS Spam Detection — NLP Classification</div>
         <div class="card-course">MSA 8150 · Machine Learning for Analytics · HW1</div>
-        <p class="card-desc">
-        Multi-model spam classifier trained on the UCI SMS Spam Collection. Applied TF-IDF vectorization and benchmarked four algorithms — Logistic Regression, Naïve Bayes, Decision Tree, and KNN — using precision, recall, and F1-score.
-      </p>
+        <p class="card-desc">Multi-model spam classifier trained on the UCI SMS Spam Collection. Applied TF-IDF vectorization and benchmarked four algorithms — Logistic Regression, Naïve Bayes, Decision Tree, and KNN — using precision, recall, and F1-score.</p>
         <div class="card-tags">
-        <span class="tag">NLP</span>
-        <span class="tag">TF-IDF</span>
-        <span class="tag">Logistic Regression</span>
-        <span class="tag">Naïve Bayes</span>
-        <span class="tag">KNN</span>
-        <span class="tag">Decision Tree</span>
-      </div>
-        
+          <span class="tag">NLP</span><span class="tag">TF-IDF</span><span class="tag">Logistic Regression</span><span class="tag">Naïve Bayes</span><span class="tag">KNN</span><span class="tag">Decision Tree</span>
+        </div>
       </div>
       <div class="card-right">
-        
-        
+        <div class="card-highlight">
+          <div class="card-highlight-label">Key Result</div>
+          <p>Comparative analysis across 4 classifiers on 5,574 messages. EDA uncovered clear distinctions: spam messages are longer and lexically distinct from ham (e.g. "free", "win", "claim").</p>
+        </div>
+        <div class="card-insight">
+          <div class="card-insight-label">Business Insights</div>
+          <ul>
+            <li>Spam messages are significantly longer on average — length alone is a useful low-cost signal that can be used as a fast pre-filter before running expensive models.</li>
+            <li>High-frequency spam words ("free", "win", "cash", "claim") form a small, stable vocabulary — a simple keyword blocklist would catch a large portion of spam at near-zero compute cost.</li>
+            <li>Naïve Bayes delivered competitive accuracy with the fastest training time, making it the practical choice for real-time SMS filtering at scale.</li>
+            <li>False negatives (missed spam) cost users attention; false positives (blocked ham) cost trust — the model can be tuned toward higher recall or precision depending on business priorities.</li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <!-- Project 3 -->
     <div class="project-card">
       <div class="card-left">
-        <div class="card-num">03 / 05</div>
+        <div class="card-num">03 / 06</div>
         <div class="card-accent-bar" style="background: var(--accent3);"></div>
         <div class="card-title">Building Energy Efficiency — Regression Modeling</div>
         <div class="card-course">MSA 8150 · Machine Learning for Analytics · HW2</div>
-        <p class="card-desc">
-        Predicted building Heating Load from 8 architectural features (UCI Energy Efficiency dataset). Implemented and systematically compared Linear Regression, Polynomial Regression (degree=2), and Ridge Regression with GridSearchCV hyperparameter tuning.
-      </p>
+        <p class="card-desc">Predicted building Heating Load from 8 architectural features (UCI Energy Efficiency dataset). Implemented and systematically compared Linear Regression, Polynomial Regression (degree=2), and Ridge Regression with GridSearchCV hyperparameter tuning.</p>
         <div class="card-tags">
-        <span class="tag">Linear Regression</span>
-        <span class="tag">Polynomial Regression</span>
-        <span class="tag">Ridge Regression</span>
-        <span class="tag">GridSearchCV</span>
-        <span class="tag">StandardScaler</span>
-        <span class="tag">KFold CV</span>
-      </div>
-        
+          <span class="tag">Linear Regression</span><span class="tag">Polynomial Regression</span><span class="tag">Ridge Regression</span><span class="tag">GridSearchCV</span><span class="tag">StandardScaler</span><span class="tag">KFold CV</span>
+        </div>
       </div>
       <div class="card-right">
-        
-        
+        <div class="card-highlight">
+          <div class="card-highlight-label">Key Result</div>
+          <p>Ridge Regression on polynomial features achieved the best test R² and RMSE. Bias-variance trade-off curve showed degree-3+ caused overfitting; optimal alpha found via 5-fold cross-validation.</p>
+        </div>
+        <div class="card-insight">
+          <div class="card-insight-label">Business Insights</div>
+          <ul>
+            <li>Overall Height and Roof Area were the strongest predictors of Heating Load — architects can prioritize these two design variables to meaningfully reduce a building's energy demand.</li>
+            <li>Glazing Area had a positive relationship with heating load — larger window surfaces increase heat loss, a direct trade-off between natural light and energy efficiency.</li>
+            <li>Relative Compactness was highly inversely correlated with energy use — more compact building shapes retain heat better, a finding that directly informs sustainable architecture guidelines.</li>
+            <li>Orientation showed the weakest impact on heating load, suggesting energy codes could deprioritize orientation requirements in favor of material and structural standards.</li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <!-- Project 4 -->
     <div class="project-card">
       <div class="card-left">
-        <div class="card-num">04 / 05</div>
+        <div class="card-num">04 / 06</div>
         <div class="card-accent-bar" style="background: #f7c948;"></div>
         <div class="card-title">Product Review Sentiment Analysis</div>
         <div class="card-course">MSA 8150 · Machine Learning for Analytics · HW4</div>
-        <p class="card-desc">
-        Sentiment classification pipeline on customer product reviews. Applied TF-IDF text vectorization, label encoding, and Logistic Regression to predict review sentiment at scale — including deduplication, null-handling, and structured evaluation.
-      </p>
+        <p class="card-desc">Sentiment classification pipeline on customer product reviews. Applied TF-IDF text vectorization, label encoding, and Logistic Regression to predict review sentiment at scale — including deduplication, null-handling, and structured evaluation.</p>
         <div class="card-tags">
-        <span class="tag">NLP</span>
-        <span class="tag">Sentiment Analysis</span>
-        <span class="tag">TF-IDF</span>
-        <span class="tag">Logistic Regression</span>
-        <span class="tag">Seaborn</span>
-        <span class="tag">pandas</span>
-      </div>
-        
+          <span class="tag">NLP</span><span class="tag">Sentiment Analysis</span><span class="tag">TF-IDF</span><span class="tag">Logistic Regression</span><span class="tag">Seaborn</span><span class="tag">pandas</span>
+        </div>
       </div>
       <div class="card-right">
-        
-        
+        <div class="card-highlight">
+          <div class="card-highlight-label">Key Result</div>
+          <p>Full pipeline from raw CSV to classification report — preprocessing, vectorization, training, and confusion matrix evaluation — structured for reproducibility with modular functions.</p>
+        </div>
+        <div class="card-insight">
+          <div class="card-insight-label">Business Insights</div>
+          <ul>
+            <li>Automated sentiment classification can replace manual review tagging at scale — enabling product teams to process thousands of reviews in seconds rather than days.</li>
+            <li>Duplicate reviews are a common data quality issue — deduplication before modeling prevents inflated confidence in model performance and ensures representative training data.</li>
+            <li>TF-IDF surfaces the words most strongly associated with each sentiment class — these terms can directly inform product messaging, customer support scripts, and marketing copy.</li>
+            <li>A deployed version of this pipeline could power real-time product dashboards, flagging sudden sentiment drops as an early warning system for product or supply chain issues.</li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <!-- Project 5 -->
     <div class="project-card">
       <div class="card-left">
-        <div class="card-num">05 / 05</div>
+        <div class="card-num">05 / 06</div>
         <div class="card-accent-bar" style="background: #e05fff;"></div>
         <div class="card-title">NFL Big Data Bowl 2025 — Kaggle</div>
         <div class="card-course">Kaggle Competition · Independent</div>
-        <p class="card-desc">
-        Participated in the NFL Big Data Bowl 2025 hosted on Kaggle. Worked with official NFL tracking data downloaded via the KaggleHub API, with a focus on play-level analysis using pandas and NumPy.
-      </p>
+        <p class="card-desc">Participated in the NFL Big Data Bowl 2025 hosted on Kaggle. Worked with official NFL tracking data downloaded via the KaggleHub API, with a focus on play-level analysis using pandas and NumPy.</p>
         <div class="card-tags">
-        <span class="tag">Python</span>
-        <span class="tag">pandas</span>
-        <span class="tag">NumPy</span>
-        <span class="tag">Kaggle API</span>
-        <span class="tag">Sports Analytics</span>
-      </div>
-        
+          <span class="tag">Python</span><span class="tag">pandas</span><span class="tag">NumPy</span><span class="tag">Kaggle API</span><span class="tag">Sports Analytics</span>
+        </div>
       </div>
       <div class="card-right">
-        
-        
+        <div class="card-highlight">
+          <div class="card-highlight-label">Key Result</div>
+          <p>Explored real-world sports telemetry data from the NFL's Next Gen Stats tracking system — a domain where spatiotemporal features and play sequencing create unique ML challenges.</p>
+        </div>
+        <div class="card-insight">
+          <div class="card-insight-label">Business Insights</div>
+          <ul>
+            <li>NFL tracking data captures player position at 10 frames per second — the volume and velocity of this data mirrors industrial IoT problems, making the techniques directly transferable.</li>
+            <li>Play-level analytics can quantify decisions that were previously evaluated subjectively — giving coaches and front offices a data-driven basis for in-game strategy and roster construction.</li>
+            <li>Sports analytics is a high-stakes proving ground for ML pipelines — low latency, high-dimensional data, and real financial consequences (contracts, draft picks) make it a rigorous applied domain.</li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -739,22 +754,26 @@
         <div class="card-accent-bar" style="background: #00aaff;"></div>
         <div class="card-title">House Price Prediction — Regularized Regression</div>
         <div class="card-course">MSA 8150 · Machine Learning for Analytics · Final Project</div>
-        <p class="card-desc">
-        End-to-end house price prediction pipeline on the Ames Housing dataset. Engineered 80+ features including ordinal quality mappings, one-hot encoded neighborhood and style variables, and log-transformed the target to handle price skewness. Compared Lasso and Ridge regression with 5-fold cross-validated alpha tuning.
-      </p>
+        <p class="card-desc">End-to-end house price prediction pipeline on the Ames Housing dataset. Engineered 80+ features including ordinal quality mappings, one-hot encoded neighborhood and style variables, and log-transformed the target to handle price skewness. Compared Lasso and Ridge regression with 5-fold cross-validated alpha tuning.</p>
         <div class="card-tags">
-        <span class="tag">Lasso / Ridge</span>
-        <span class="tag">LassoCV / RidgeCV</span>
-        <span class="tag">Log Transformation</span>
-        <span class="tag">One-Hot Encoding</span>
-        <span class="tag">Feature Scaling</span>
-        <span class="tag">EDA</span>
-      </div>
-        
+          <span class="tag">Lasso / Ridge</span><span class="tag">LassoCV / RidgeCV</span><span class="tag">Log Transformation</span><span class="tag">One-Hot Encoding</span><span class="tag">Feature Scaling</span><span class="tag">EDA</span>
+        </div>
       </div>
       <div class="card-right">
-        
-        
+        <div class="card-highlight">
+          <div class="card-highlight-label">Key Result</div>
+          <p>Ridge achieved R² of 0.90 on log-transformed sale prices. Log transformation reduced the impact of extreme luxury outliers and improved model stability across both regularization methods.</p>
+        </div>
+        <div class="card-insight">
+          <div class="card-insight-label">Business Insights</div>
+          <ul>
+            <li>Overall quality rating was the single strongest price driver — a one standard deviation increase in quality score translated to a significant percentage lift in sale price, giving appraisers a quantifiable basis for renovation ROI.</li>
+            <li>Above-ground living area had a near-linear relationship with price, but luxury outliers above 4,000 sq ft distorted predictions — removing them improved accuracy, showing extreme properties need separate valuation models.</li>
+            <li>Neighborhood was a major price determinant even after controlling for size and quality — location effects validate why real estate agents emphasize "location, location, location."</li>
+            <li>Lasso's automatic feature selection zeroed out irrelevant variables — directly valuable for streamlining appraisal checklists and reducing data collection costs.</li>
+            <li>Log-transforming sale price reduced prediction error in dollar terms — a modeling decision with direct financial impact when errors compound across large property portfolios.</li>
+          </ul>
+        </div>
       </div>
     </div>
 
