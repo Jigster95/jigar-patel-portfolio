@@ -582,6 +582,16 @@
         <div class="card-highlight-label">Key Result</div>
         <p>Gradient Boosting outperformed Linear Regression baseline; log-transformed Sales target improved model stability. Lag features and rolling averages captured weekly seasonality patterns.</p>
       </div>
+      <div class="card-insight">
+        <div class="card-insight-label">Business Insights</div>
+        <ul>
+          <li>Promotions drove measurably higher sales — stores running Promo had significantly elevated daily revenue, validating promotional investment.</li>
+          <li>Nearby competitors did not necessarily hurt sales — stores with very close competition sometimes outperformed, suggesting that retail clusters attract more foot traffic overall.</li>
+          <li>Day-of-week patterns were consistent and predictable — Monday sales consistently lagged while mid-week drove the most volume, informing staffing and inventory decisions.</li>
+          <li>Store Type B (larger format) generated the highest average sales, suggesting format expansion could be a high-ROI strategic move.</li>
+        </ul>
+      </div>
+    </div>
       <a href="Rossmann_Sales_Forecasting.ipynb" target="_blank" 
          style="color: var(--accent); font-family: var(--mono); font-size: 0.75rem; text-decoration: none; margin-top: 1rem; display: inline-block;">
          Source Code ↗
@@ -607,6 +617,16 @@
         <div class="card-highlight-label">Key Result</div>
         <p>Comparative analysis across 4 classifiers on 5,574 messages. EDA uncovered clear distinctions: spam messages are longer and lexically distinct from ham (e.g. "free", "win", "claim").</p>
       </div>
+      <div class="card-insight">
+        <div class="card-insight-label">Business Insights</div>
+        <ul>
+          <li>Promotions drove measurably higher sales — stores running Promo had significantly elevated daily revenue, validating promotional investment.</li>
+          <li>Nearby competitors did not necessarily hurt sales — stores with very close competition sometimes outperformed, suggesting that retail clusters attract more foot traffic overall.</li>
+          <li>Day-of-week patterns were consistent and predictable — Monday sales consistently lagged while mid-week drove the most volume, informing staffing and inventory decisions.</li>
+          <li>Store Type B (larger format) generated the highest average sales, suggesting format expansion could be a high-ROI strategic move.</li>
+        </ul>
+      </div>
+    </div>
       <a href="SMSSpamCollection.py" target="_blank" 
          style="color: var(--accent2); font-family: var(--mono); font-size: 0.75rem; text-decoration: none; margin-top: 1rem; display: inline-block;">
          Source Code ↗
@@ -632,6 +652,16 @@
         <div class="card-highlight-label">Key Result</div>
         <p>Ridge Regression on polynomial features achieved the best test R² and RMSE. Bias-variance trade-off curve showed degree-3+ caused overfitting; optimal alpha found via 5-fold cross-validation.</p>
       </div>
+      <div class="card-insight">
+        <div class="card-insight-label">Business Insights</div>
+        <ul>
+          <li>Overall Height and Roof Area were the strongest predictors of Heating Load — architects can prioritize these two design variables to meaningfully reduce a building's energy demand.</li>
+          <li>Glazing Area had a positive relationship with heating load — larger window surfaces increase heat loss, a direct trade-off between natural light and energy efficiency.</li>
+          <li>Relative Compactness was highly inversely correlated with energy use — more compact building shapes retain heat better, a finding that directly informs sustainable architecture guidelines.</li>
+          <li>Orientation showed the weakest impact on heating load, suggesting energy codes could deprioritize orientation requirements in favor of material and structural standards.</li>
+        </ul>
+      </div>
+    </div>
       <a href="Energy_Efficiency_Regression_Analysis.py" target="_blank" 
          style="color: var(--accent3); font-family: var(--mono); font-size: 0.75rem; text-decoration: none; margin-top: 1rem; display: inline-block;">
          Source Code ↗
@@ -657,6 +687,17 @@
         <div class="card-highlight-label">Key Result</div>
         <p>Full pipeline from raw CSV to classification report — preprocessing, vectorization, training, and confusion matrix evaluation — structured for reproducibility with modular functions.</p>
       </div>
+      </div>
+      <div class="card-insight">
+        <div class="card-insight-label">Business Insights</div>
+        <ul>
+          <li>Automated sentiment classification can replace manual review tagging at scale — enabling product teams to process thousands of reviews in seconds rather than days.</li>
+          <li>Duplicate reviews are a common data quality issue — deduplication before modeling prevents inflated confidence in model performance and ensures representative training data.</li>
+          <li>TF-IDF surfaces the words most strongly associated with each sentiment class — these terms can directly inform product messaging, customer support scripts, and marketing copy.</li>
+          <li>A deployed version of this pipeline could power real-time product dashboards, flagging sudden sentiment drops as an early warning system for product or supply chain issues.</li>
+        </ul>
+      </div>
+    </div>
       <a href="Sentiment_Analysis_Logistic_Regression.ipynb" target="_blank" 
          style="color: #f7c948; font-family: var(--mono); font-size: 0.75rem; text-decoration: none; margin-top: 1rem; display: inline-block;">
          Source Code ↗
@@ -680,6 +721,14 @@
       <div class="card-highlight">
         <div class="card-highlight-label">Context</div>
         <p>Explored real-world sports telemetry data from the NFL's Next Gen Stats tracking system — a domain where spatiotemporal features and play sequencing create unique ML challenges.</p>
+      </div>
+      <div class="card-insight">
+        <div class="card-insight-label">Business Insights</div>
+        <ul>
+          <li>NFL tracking data captures player position at 10 frames per second — the volume and velocity of this data mirrors industrial IoT problems, making the techniques directly transferable.</li>
+          <li>Play-level analytics can quantify decisions that were previously evaluated subjectively — giving coaches and front offices a data-driven basis for in-game strategy and roster construction.</li>
+          <li>Sports analytics is a high-stakes proving ground for ML pipelines — low latency, high-dimensional data, and real financial consequences (contracts, draft picks) make it a rigorous applied domain.</li>
+        </ul>
       </div>
       <a href="NFL_Big_Data_Bowl_Analysis.py" target="_blank" 
          style="color: #e05fff; font-family: var(--mono); font-size: 0.75rem; text-decoration: none; margin-top: 1rem; display: inline-block;">
@@ -705,6 +754,7 @@
         <div class="card-highlight-label">Key Result</div>
         <p>Achieved high precision in identifying high-risk applicants. Focused on minimizing False Negatives to reduce potential credit loss, providing a data-driven foundation for lending decisions.</p>
       </div>
+      
       <a href="Credit_Risk_Predictive_Model.ipynb" target="_blank" 
          style="color: var(--accent3); font-family: var(--mono); font-size: 0.75rem; text-decoration: none; margin-top: 1rem; display: inline-block;">
          Source Code ↗
