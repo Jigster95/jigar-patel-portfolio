@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jigar Patel — Analytics Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0b0e13;
+    --surface: #13181f;
+    --card: #181e27;
+    --border: #1f2a38;
+    --accent: #00d4aa;
+    --accent2: #ff6b35;
+    --accent3: #7c6dfa;
+    --text: #e8edf5;
+    --muted: #6b7a8d;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: rgba(11, 14, 19, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+  }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 3rem 4rem;
+    position: relative;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,212,170,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,170,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,212,170,0.08) 0%, transparent 70%);
+    top: 50%; left: 10%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .hero-content { position: relative; max-width: 820px; }
+
+  .hero-tag {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--accent);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .hero-tag::before {
+    content: '';
+    display: inline-block;
+    width: 28px; height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 3rem; }
+
+  .chip {
+    font-family: var(--mono);
+    font-size: 0.73rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 2px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    background: var(--surface);
+    letter-spacing: 0.05em;
+  }
+  .chip.hi { border-color: rgba(0,212,170,0.3); color: var(--accent); background: rgba(0,212,170,0.05); }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--accent);
+    color: #0b0e13;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 0.85rem 1.8rem;
+    border-radius: 3px;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .hero-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+  /* ── SECTION ── */
+  section { padding: 6rem 3rem; position: relative; }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 3.5rem;
+    line-height: 1.15;
+  }
+
+  /* ── PROJECT CARDS ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5px;
+    border: 1.5px solid var(--border);
+  }
+
+  .project-card {
+    background: var(--card);
+    padding: 2.2rem;
+    border: 1.5px solid transparent;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    transition: border-color 0.25s, background 0.25s;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,212,170,0.04) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .project-card:hover {
+    border-color: rgba(0,212,170,0.25);
+    background: #1c2430;
+  }
+  .project-card:hover::before { opacity: 1; }
+
+  .card-num {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--border);
+    letter-spacing: 0.1em;
+    margin-bottom: 1.4rem;
+  }
+
+  .card-accent-bar {
+    width: 32px;
+    height: 3px;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .card-title {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    line-height: 1.25;
+    margin-bottom: 0.7rem;
+  }
+
+  .card-course {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  .card-desc {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    padding: 0.22rem 0.6rem;
+    border-radius: 2px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  .card-highlight {
+    margin-top: 1.4rem;
+    padding: 0.9rem 1rem;
+    background: var(--surface);
+    border-left: 2px solid var(--accent);
+    border-radius: 0 2px 2px 0;
+  }
+
+  .card-highlight-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+
+  .card-highlight p {
+    font-size: 0.83rem;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  /* ── SKILLS ── */
+  .skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--border);
+    margin-top: 1rem;
+  }
+
+  .skill-block {
+    background: var(--card);
+    padding: 1.6rem;
+    transition: background 0.2s;
+  }
+  .skill-block:hover { background: #1c2430; }
+
+  .skill-block-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+  .skill-list li {
+    font-size: 0.88rem;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .skill-list li::before {
+    content: '▸';
+    color: var(--accent);
+    font-size: 0.7rem;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+  }
+
+  .about-text p strong { color: var(--text); font-weight: 500; }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    border: 1px solid var(--border);
+    align-self: start;
+  }
+
+  .stat-box {
+    background: var(--card);
+    padding: 1.8rem;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.3rem;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ── CONTACT ── */
+  .contact-strip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-strip h3 {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+  }
+
+  .contact-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.4rem;
+    border-radius: 2px;
+    font-size: 0.84rem;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .contact-btn:hover { opacity: 0.8; transform: translateY(-1px); }
+  .contact-btn.primary { background: var(--accent); color: #0b0e13; }
+  .contact-btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2rem 3rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 0 3rem;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up { animation: fadeUp 0.7s ease forwards; }
+  .fade-up:nth-child(2) { animation-delay: 0.1s; }
+  .fade-up:nth-child(3) { animation-delay: 0.2s; }
+  .fade-up:nth-child(4) { animation-delay: 0.3s; }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .hero { padding: 7rem 1.5rem 3rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .contact-strip { flex-direction: column; align-items: flex-start; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .projects-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">jp.portfolio</div>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-tag fade-up">Analytics · Machine Learning · Data Science</div>
+    <h1 class="fade-up">Jigar <em>Patel</em></h1>
+    <p class="hero-sub fade-up">
+      Graduate student in Machine Learning for Analytics at Georgia State University —
+      building models that find signal in noise, from spam filters to retail forecasting systems.
+    </p>
+    <div class="hero-chips fade-up">
+      <span class="chip hi">Python</span>
+      <span class="chip hi">scikit-learn</span>
+      <span class="chip hi">NLP</span>
+      <span class="chip">pandas</span>
+      <span class="chip">RAG Pipelines</span>
+      <span class="chip">SQL / pgvector</span>
+      <span class="chip">Streamlit</span>
+      <span class="chip">LLMs</span>
+    </div>
+    <a class="hero-cta fade-up" href="#projects">View Projects ↓</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="section-label">Work</p>
+  <h2>Featured Projects</h2>
+
+  <div class="projects-grid">
+
+    <!-- Project 1 -->
+    <div class="project-card">
+      <div class="card-num">01 / 05</div>
+      <div class="card-accent-bar" style="background: var(--accent);"></div>
+      <div class="card-title">Retail Sales Forecasting — Rossmann Stores</div>
+      <div class="card-course">MSA Course · Group Project</div>
+      <p class="card-desc">
+        End-to-end sales forecasting pipeline on 1M+ rows of German pharmacy chain data. Engineered calendar, lag, and rolling-window features, then compared Linear Regression, Random Forest, and Gradient Boosting regressors using time-series cross-validation.
+      </p>
+      <div class="card-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Random Forest</span>
+        <span class="tag">Gradient Boosting</span>
+        <span class="tag">Time-Series CV</span>
+        <span class="tag">Feature Engineering</span>
+        <span class="tag">Plotly</span>
+      </div>
+      <div class="card-highlight">
+        <div class="card-highlight-label">Key Result</div>
+        <p>Gradient Boosting outperformed Linear Regression baseline; log-transformed Sales target improved model stability. Lag features and rolling averages captured weekly seasonality patterns.</p>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card">
+      <div class="card-num">02 / 05</div>
+      <div class="card-accent-bar" style="background: var(--accent2);"></div>
+      <div class="card-title">SMS Spam Detection — NLP Classification</div>
+      <div class="card-course">MSA 8150 · Machine Learning for Analytics · HW1</div>
+      <p class="card-desc">
+        Multi-model spam classifier trained on the UCI SMS Spam Collection. Applied TF-IDF vectorization and benchmarked four algorithms — Logistic Regression, Naïve Bayes, Decision Tree, and KNN — using precision, recall, and F1-score.
+      </p>
+      <div class="card-tags">
+        <span class="tag">NLP</span>
+        <span class="tag">TF-IDF</span>
+        <span class="tag">Logistic Regression</span>
+        <span class="tag">Naïve Bayes</span>
+        <span class="tag">KNN</span>
+        <span class="tag">Decision Tree</span>
+      </div>
+      <div class="card-highlight">
+        <div class="card-highlight-label">Key Result</div>
+        <p>Comparative analysis across 4 classifiers on 5,574 messages. EDA uncovered clear distinctions: spam messages are longer and lexically distinct from ham (e.g. "free", "win", "claim").</p>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card">
+      <div class="card-num">03 / 05</div>
+      <div class="card-accent-bar" style="background: var(--accent3);"></div>
+      <div class="card-title">Building Energy Efficiency — Regression Modeling</div>
+      <div class="card-course">MSA 8150 · Machine Learning for Analytics · HW2</div>
+      <p class="card-desc">
+        Predicted building Heating Load from 8 architectural features (UCI Energy Efficiency dataset). Implemented and systematically compared Linear Regression, Polynomial Regression (degree=2), and Ridge Regression with GridSearchCV hyperparameter tuning.
+      </p>
+      <div class="card-tags">
+        <span class="tag">Linear Regression</span>
+        <span class="tag">Polynomial Regression</span>
+        <span class="tag">Ridge Regression</span>
+        <span class="tag">GridSearchCV</span>
+        <span class="tag">StandardScaler</span>
+        <span class="tag">KFold CV</span>
+      </div>
+      <div class="card-highlight">
+        <div class="card-highlight-label">Key Result</div>
+        <p>Ridge Regression on polynomial features achieved the best test R² and RMSE. Bias-variance trade-off curve showed degree-3+ caused overfitting; optimal alpha found via 5-fold cross-validation.</p>
+      </div>
+    </div>
+
+    <!-- Project 4 -->
+    <div class="project-card">
+      <div class="card-num">04 / 05</div>
+      <div class="card-accent-bar" style="background: #f7c948;"></div>
+      <div class="card-title">Product Review Sentiment Analysis</div>
+      <div class="card-course">MSA 8150 · Machine Learning for Analytics · HW4</div>
+      <p class="card-desc">
+        Sentiment classification pipeline on customer product reviews. Applied TF-IDF text vectorization, label encoding, and Logistic Regression to predict review sentiment at scale — including deduplication, null-handling, and structured evaluation.
+      </p>
+      <div class="card-tags">
+        <span class="tag">NLP</span>
+        <span class="tag">Sentiment Analysis</span>
+        <span class="tag">TF-IDF</span>
+        <span class="tag">Logistic Regression</span>
+        <span class="tag">Seaborn</span>
+        <span class="tag">pandas</span>
+      </div>
+      <div class="card-highlight">
+        <div class="card-highlight-label">Key Result</div>
+        <p>Full pipeline from raw CSV to classification report — preprocessing, vectorization, training, and confusion matrix evaluation — structured for reproducibility with modular functions.</p>
+      </div>
+    </div>
+
+    <!-- Project 5 -->
+    <div class="project-card">
+      <div class="card-num">05 / 05</div>
+      <div class="card-accent-bar" style="background: #e05fff;"></div>
+      <div class="card-title">NFL Big Data Bowl 2025 — Kaggle</div>
+      <div class="card-course">Kaggle Competition · Independent</div>
+      <p class="card-desc">
+        Participated in the NFL Big Data Bowl 2025 hosted on Kaggle. Worked with official NFL tracking data downloaded via the KaggleHub API, with a focus on play-level analysis using pandas and NumPy.
+      </p>
+      <div class="card-tags">
+        <span class="tag">Python</span>
+        <span class="tag">pandas</span>
+        <span class="tag">NumPy</span>
+        <span class="tag">Kaggle API</span>
+        <span class="tag">Sports Analytics</span>
+      </div>
+      <div class="card-highlight">
+        <div class="card-highlight-label">Context</div>
+        <p>Explored real-world sports telemetry data from the NFL's Next Gen Stats tracking system — a domain where spatiotemporal features and play sequencing create unique ML challenges.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label">Toolkit</p>
+  <h2>Technical Skills</h2>
+
+  <div class="skills-container">
+    <div class="skill-block">
+      <div class="skill-block-label">Languages</div>
+      <ul class="skill-list">
+        <li>Python</li>
+        <li>SQL</li>
+        <li>Bash / Git</li>
+      </ul>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-label">ML & Modeling</div>
+      <ul class="skill-list">
+        <li>scikit-learn</li>
+        <li>Linear / Ridge / Poly</li>
+        <li>Random Forest / GBR</li>
+        <li>Logistic Regression</li>
+        <li>Naïve Bayes / KNN</li>
+        <li>Decision Trees</li>
+      </ul>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-label">NLP</div>
+      <ul class="skill-list">
+        <li>TF-IDF Vectorization</li>
+        <li>Sentiment Analysis</li>
+        <li>BERT / QA Models</li>
+        <li>RAG Pipelines</li>
+        <li>Embedding Models</li>
+      </ul>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-label">Data & Viz</div>
+      <ul class="skill-list">
+        <li>pandas / NumPy</li>
+        <li>Matplotlib / Seaborn</li>
+        <li>Plotly Express</li>
+        <li>EDA & Feature Eng.</li>
+      </ul>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-label">Infrastructure</div>
+      <ul class="skill-list">
+        <li>PostgreSQL + pgvector</li>
+        <li>ChromaDB</li>
+        <li>Ollama / LLMs</li>
+        <li>Docker</li>
+        <li>Streamlit</li>
+        <li>Google Colab</li>
+      </ul>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-label">Workflow</div>
+      <ul class="skill-list">
+        <li>Git / GitLab</li>
+        <li>Sourcetree</li>
+        <li>Jupyter Notebooks</li>
+        <li>Kaggle</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label">Background</p>
+  <h2>About Me</h2>
+
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        I'm a graduate student in the <strong>Master of Science in Analytics program at Georgia State University</strong>, specializing in Machine Learning for Analytics and Generative AI applications.
+      </p>
+      <p>
+        My work spans the full analytics lifecycle — from exploratory data analysis and feature engineering through model training, evaluation, and deployment. I'm particularly interested in <strong>NLP, predictive modeling, and RAG-based AI systems</strong> that turn unstructured data into actionable insight.
+      </p>
+      <p>
+        Beyond coursework, I've built DAIS (Document-Aware Intelligence System), a production-style RAG pipeline that analyzes SEC 10-K filings using vector search, local LLMs, and a conversational interface. I approach every project with an engineer's rigor and an analyst's curiosity.
+      </p>
+    </div>
+
+    <div class="about-stats">
+      <div class="stat-box">
+        <span class="stat-num">5</span>
+        <span class="stat-label">Projects Completed</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">10+</span>
+        <span class="stat-label">ML Models Built</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">1M+</span>
+        <span class="stat-label">Rows Analyzed</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">GSU</span>
+        <span class="stat-label">MS Analytics</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-strip">
+    <div>
+      <p class="section-label">Let's Connect</p>
+      <h3>Open to opportunities<br>& collaborations.</h3>
+    </div>
+    <div class="contact-links">
+      <a class="contact-btn primary" href="mailto:jpatel245@student.gsu.edu">Email Me ↗</a>
+      <a class="contact-btn ghost" href="https://github.com/" target="_blank">GitHub ↗</a>
+      <a class="contact-btn ghost" href="https://linkedin.com/" target="_blank">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Jigar Patel · MS Analytics · Georgia State University</p>
+  <p>Built with HTML · CSS · Hosted on GitHub Pages</p>
+</footer>
+
+</body>
+</html>
