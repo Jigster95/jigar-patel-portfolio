@@ -736,31 +736,39 @@
       </a>
     </div>
     
+    <!-- Project 6 -->
     <div class="project-card">
-      <div class="card-num">03 / 05</div>
-      <div class="card-accent-bar" style="background: var(--accent3);"></div>
-      <div class="card-title">Credit Risk Predictive Modeling</div>
+      <div class="card-num">06 / 06</div>
+      <div class="card-accent-bar" style="background: #00aaff;"></div>
+      <div class="card-title">House Price Prediction — Regularized Regression</div>
+      <div class="card-course">MSA 8150 · Machine Learning for Analytics · Final Project</div>
       <p class="card-desc">
-        Developed a robust classification framework to evaluate loan default risk. The project involved intensive data preprocessing, handling class imbalance, and a deep evaluation of model performance metrics to minimize financial exposure.
+        End-to-end house price prediction pipeline on the Ames Housing dataset. Engineered 80+ features including ordinal quality mappings, one-hot encoded neighborhood and style variables, and log-transformed the target to handle price skewness. Compared Lasso and Ridge regression with 5-fold cross-validated alpha tuning.
       </p>
       <div class="card-tags">
-        <span class="tag">Python</span>
-        <span class="tag">Scikit-Learn</span>
-        <span class="tag">Classification</span>
-        <span class="tag">Predictive Analytics</span>
-        <span class="tag">Seaborn</span>
+        <span class="tag">Lasso / Ridge</span>
+        <span class="tag">LassoCV / RidgeCV</span>
+        <span class="tag">Log Transformation</span>
+        <span class="tag">One-Hot Encoding</span>
+        <span class="tag">Feature Scaling</span>
+        <span class="tag">EDA</span>
       </div>
       <div class="card-highlight">
         <div class="card-highlight-label">Key Result</div>
-        <p>Achieved high precision in identifying high-risk applicants. Focused on minimizing False Negatives to reduce potential credit loss, providing a data-driven foundation for lending decisions.</p>
+        <p>Ridge achieved R² of 0.90 on log-transformed sale prices. Log transformation reduced the impact of extreme luxury outliers and improved model stability across both regularization methods. Feature importance extracted directly from Ridge coefficients, converted to percentage price impact per standard deviation.</p>
       </div>
-      
-      <a href="Credit_Risk_Predictive_Model.ipynb" target="_blank" 
-         style="color: var(--accent3); font-family: var(--mono); font-size: 0.75rem; text-decoration: none; margin-top: 1rem; display: inline-block;">
-         Source Code ↗
-      </a>
+      <div class="card-insight">
+        <div class="card-insight-label">Business Insights</div>
+        <ul>
+          <li>Overall quality rating was the single strongest price driver — a one standard deviation increase in quality score translated to a significant percentage lift in sale price, giving appraisers a quantifiable basis for renovation ROI.</li>
+          <li>Above-ground living area (GrLivArea) had a near-linear relationship with price, but luxury outliers above 4,000 sq ft distorted predictions — removing them improved model accuracy, a reminder that extreme properties require separate valuation models.</li>
+          <li>Neighborhood was a major price determinant even after controlling for size and quality — location effects are not fully captured by physical features, validating why real estate agents emphasize "location, location, location."</li>
+          <li>Lasso's automatic feature selection zeroed out irrelevant variables, effectively identifying which of the 80+ features were noise — this has direct value for streamlining appraisal checklists and data collection costs.</li>
+          <li>Log-transforming sale price before modeling reduced prediction error in dollar terms — a modeling decision with direct financial impact when errors compound across large portfolios of properties.</li>
+        </ul>
+      </div>
     </div>
-
+ 
   </div>
 </section>
 
