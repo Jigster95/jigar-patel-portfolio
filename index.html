@@ -201,7 +201,7 @@
   /* ── PROJECT CARDS ── */
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
     gap: 1.5px;
     border: 1.5px solid var(--border);
   }
@@ -305,14 +305,14 @@
     line-height: 1.55;
   }
 
-    .card-insight {
+  .card-insight {
     margin-top: 1rem;
     padding: 0.9rem 1rem;
     background: rgba(124,109,250,0.07);
     border-left: 2px solid var(--accent3);
     border-radius: 0 2px 2px 0;
   }
- 
+
   .card-insight-label {
     font-family: var(--mono);
     font-size: 0.65rem;
@@ -321,7 +321,7 @@
     text-transform: uppercase;
     margin-bottom: 0.3rem;
   }
- 
+
   .card-insight ul {
     list-style: none;
     display: flex;
@@ -329,7 +329,7 @@
     gap: 0.35rem;
     padding: 0;
   }
- 
+
   .card-insight ul li {
     font-size: 0.82rem;
     color: var(--muted);
@@ -338,7 +338,7 @@
     gap: 0.5rem;
     align-items: flex-start;
   }
- 
+
   .card-insight ul li::before {
     content: '◆';
     color: var(--accent3);
@@ -504,10 +504,10 @@
   .fade-up:nth-child(3) { animation-delay: 0.2s; }
   .fade-up:nth-child(4) { animation-delay: 0.3s; }
 
-  /* ADDED - lines 507-509 */
-@media (max-width: 1100px) {
-  .projects-grid { grid-template-columns: repeat(2, 1fr); }
-}
+  @media (max-width: 1100px) {
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
@@ -567,10 +567,12 @@
 
   <div class="projects-grid">
 
+    <!-- Project 1 -->
     <div class="project-card">
       <div class="card-num">01 / 05</div>
       <div class="card-accent-bar" style="background: var(--accent);"></div>
       <div class="card-title">Retail Sales Forecasting — Rossmann Stores</div>
+      <div class="card-course">MSA Course · Group Project</div>
       <p class="card-desc">
         End-to-end sales forecasting pipeline on 1M+ rows of German pharmacy chain data. Engineered calendar, lag, and rolling-window features, then compared Linear Regression, Random Forest, and Gradient Boosting regressors using time-series cross-validation.
       </p>
@@ -596,16 +598,13 @@
         </ul>
       </div>
     </div>
-      <a href="Rossmann_Sales_Forecasting.ipynb" target="_blank" 
-         style="color: var(--accent); font-family: var(--mono); font-size: 0.75rem; text-decoration: none; margin-top: 1rem; display: inline-block;">
-         Source Code ↗
-      </a>
-    </div>
 
+    <!-- Project 2 -->
     <div class="project-card">
       <div class="card-num">02 / 05</div>
       <div class="card-accent-bar" style="background: var(--accent2);"></div>
       <div class="card-title">SMS Spam Detection — NLP Classification</div>
+      <div class="card-course">MSA 8150 · Machine Learning for Analytics · HW1</div>
       <p class="card-desc">
         Multi-model spam classifier trained on the UCI SMS Spam Collection. Applied TF-IDF vectorization and benchmarked four algorithms — Logistic Regression, Naïve Bayes, Decision Tree, and KNN — using precision, recall, and F1-score.
       </p>
@@ -624,23 +623,20 @@
       <div class="card-insight">
         <div class="card-insight-label">Business Insights</div>
         <ul>
-          <li>Promotions drove measurably higher sales — stores running Promo had significantly elevated daily revenue, validating promotional investment.</li>
-          <li>Nearby competitors did not necessarily hurt sales — stores with very close competition sometimes outperformed, suggesting that retail clusters attract more foot traffic overall.</li>
-          <li>Day-of-week patterns were consistent and predictable — Monday sales consistently lagged while mid-week drove the most volume, informing staffing and inventory decisions.</li>
-          <li>Store Type B (larger format) generated the highest average sales, suggesting format expansion could be a high-ROI strategic move.</li>
+          <li>Spam messages are significantly longer on average — length alone is a useful low-cost signal that can be used as a fast pre-filter before running expensive models.</li>
+          <li>High-frequency spam words ("free", "win", "cash", "claim") form a small, stable vocabulary — a simple keyword blocklist would catch a large portion of spam at near-zero compute cost.</li>
+          <li>Naïve Bayes delivered competitive accuracy with the fastest training time, making it the practical choice for real-time SMS filtering at scale.</li>
+          <li>False negatives (missed spam) cost users attention; false positives (blocked ham) cost trust — the model can be tuned toward higher recall or precision depending on business priorities.</li>
         </ul>
       </div>
     </div>
-      <a href="SMSSpamCollection.py" target="_blank" 
-         style="color: var(--accent2); font-family: var(--mono); font-size: 0.75rem; text-decoration: none; margin-top: 1rem; display: inline-block;">
-         Source Code ↗
-      </a>
-    </div>
 
+    <!-- Project 3 -->
     <div class="project-card">
       <div class="card-num">03 / 05</div>
       <div class="card-accent-bar" style="background: var(--accent3);"></div>
       <div class="card-title">Building Energy Efficiency — Regression Modeling</div>
+      <div class="card-course">MSA 8150 · Machine Learning for Analytics · HW2</div>
       <p class="card-desc">
         Predicted building Heating Load from 8 architectural features (UCI Energy Efficiency dataset). Implemented and systematically compared Linear Regression, Polynomial Regression (degree=2), and Ridge Regression with GridSearchCV hyperparameter tuning.
       </p>
@@ -666,16 +662,13 @@
         </ul>
       </div>
     </div>
-      <a href="Energy_Efficiency_Regression_Analysis.py" target="_blank" 
-         style="color: var(--accent3); font-family: var(--mono); font-size: 0.75rem; text-decoration: none; margin-top: 1rem; display: inline-block;">
-         Source Code ↗
-      </a>
-    </div>
 
+    <!-- Project 4 -->
     <div class="project-card">
       <div class="card-num">04 / 05</div>
       <div class="card-accent-bar" style="background: #f7c948;"></div>
       <div class="card-title">Product Review Sentiment Analysis</div>
+      <div class="card-course">MSA 8150 · Machine Learning for Analytics · HW4</div>
       <p class="card-desc">
         Sentiment classification pipeline on customer product reviews. Applied TF-IDF text vectorization, label encoding, and Logistic Regression to predict review sentiment at scale — including deduplication, null-handling, and structured evaluation.
       </p>
@@ -691,7 +684,6 @@
         <div class="card-highlight-label">Key Result</div>
         <p>Full pipeline from raw CSV to classification report — preprocessing, vectorization, training, and confusion matrix evaluation — structured for reproducibility with modular functions.</p>
       </div>
-      </div>
       <div class="card-insight">
         <div class="card-insight-label">Business Insights</div>
         <ul>
@@ -702,16 +694,13 @@
         </ul>
       </div>
     </div>
-      <a href="Sentiment_Analysis_Logistic_Regression.ipynb" target="_blank" 
-         style="color: #f7c948; font-family: var(--mono); font-size: 0.75rem; text-decoration: none; margin-top: 1rem; display: inline-block;">
-         Source Code ↗
-      </a>
-    </div>
 
+    <!-- Project 5 -->
     <div class="project-card">
       <div class="card-num">05 / 05</div>
       <div class="card-accent-bar" style="background: #e05fff;"></div>
       <div class="card-title">NFL Big Data Bowl 2025 — Kaggle</div>
+      <div class="card-course">Kaggle Competition · Independent</div>
       <p class="card-desc">
         Participated in the NFL Big Data Bowl 2025 hosted on Kaggle. Worked with official NFL tracking data downloaded via the KaggleHub API, with a focus on play-level analysis using pandas and NumPy.
       </p>
@@ -734,12 +723,8 @@
           <li>Sports analytics is a high-stakes proving ground for ML pipelines — low latency, high-dimensional data, and real financial consequences (contracts, draft picks) make it a rigorous applied domain.</li>
         </ul>
       </div>
-      <a href="NFL_Big_Data_Bowl_Analysis.py" target="_blank" 
-         style="color: #e05fff; font-family: var(--mono); font-size: 0.75rem; text-decoration: none; margin-top: 1rem; display: inline-block;">
-         Source Code ↗
-      </a>
     </div>
-    
+
     <!-- Project 6 -->
     <div class="project-card">
       <div class="card-num">06 / 06</div>
@@ -772,7 +757,7 @@
         </ul>
       </div>
     </div>
- 
+
   </div>
 </section>
 
@@ -790,7 +775,6 @@
         <li>Python</li>
         <li>SQL</li>
         <li>Bash / Git</li>
-        <li>R</li>
       </ul>
     </div>
     <div class="skill-block">
@@ -832,8 +816,6 @@
         <li>Docker</li>
         <li>Streamlit</li>
         <li>Google Colab</li>
-        <li>Databricks</li>
-        <li>Snowflake</li>
       </ul>
     </div>
     <div class="skill-block">
@@ -843,7 +825,6 @@
         <li>Sourcetree</li>
         <li>Jupyter Notebooks</li>
         <li>Kaggle</li>
-        <li>Maven Analytics</li>
       </ul>
     </div>
   </div>
@@ -871,7 +852,7 @@
 
     <div class="about-stats">
       <div class="stat-box">
-        <span class="stat-num">5</span>
+        <span class="stat-num">6</span>
         <span class="stat-label">Projects Completed</span>
       </div>
       <div class="stat-box">
@@ -900,9 +881,9 @@
       <h3>Open to opportunities<br>& collaborations.</h3>
     </div>
     <div class="contact-links">
-      <a class="contact-btn primary" href="mailto:jmpatel11695@gmail.com">Email Me ↗</a>
-      <a class="contact-btn ghost" href="https://github.com/Jigster95" target="_blank">GitHub ↗</a>
-      <a class="contact-btn ghost" href="https://linkedin.com/in/jigar-patel-777818157" target="_blank">LinkedIn ↗</a>
+      <a class="contact-btn primary" href="mailto:jpatel245@student.gsu.edu">Email Me ↗</a>
+      <a class="contact-btn ghost" href="https://github.com/" target="_blank">GitHub ↗</a>
+      <a class="contact-btn ghost" href="https://linkedin.com/" target="_blank">LinkedIn ↗</a>
     </div>
   </div>
 </section>
