@@ -200,21 +200,35 @@
 
   /* ── PROJECT CARDS ── */
   .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 1.5px;
     border: 1.5px solid var(--border);
   }
 
   .project-card {
     background: var(--card);
-    padding: 2.2rem;
+    padding: 2rem 2.8rem;
     border: 1.5px solid transparent;
     position: relative;
     overflow: hidden;
     cursor: default;
     transition: border-color 0.25s, background 0.25s;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 1fr;
+    grid-template-rows: auto;
+    column-gap: 2.5rem;
+    align-items: start;
   }
+
+  .card-num    { grid-column: 1 / -1; }
+  .card-accent-bar { grid-column: 1 / -1; }
+  .card-title  { grid-column: 1 / 2; }
+  .card-course { grid-column: 1 / 2; }
+  .card-desc   { grid-column: 1 / 2; }
+  .card-tags   { grid-column: 2 / 3; align-content: start; }
+  .card-highlight { grid-column: 3 / 4; margin-top: 0; }
+  .card-insight   { grid-column: 3 / 4; margin-top: 0.8rem; }
 
   .project-card::before {
     content: '';
@@ -516,7 +530,13 @@
     .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .contact-strip { flex-direction: column; align-items: flex-start; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
-    .projects-grid { grid-template-columns: 1fr; }
+    .project-card {
+      grid-template-columns: 1fr !important;
+    }
+    .card-num, .card-accent-bar, .card-title, .card-course,
+    .card-desc, .card-tags, .card-highlight, .card-insight {
+      grid-column: 1 / -1 !important;
+    }
   }
 </style>
 </head>
@@ -894,5 +914,22 @@
   <p>Built with HTML · CSS · Hosted on GitHub Pages</p>
 </footer>
 
+<script>
+  // Auto-count metrics from the live DOM
+  document.addEventListener('DOMContentLoaded', () => {
+    // Count project cards
+    const projects = document.querySelectorAll('.project-card').length;
+    document.getElementById('stat-projects').textContent = projects;
+
+    // Count unique tags across all cards as proxy for tools/models used
+    const tags = new Set();
+    document.querySelectorAll('.tag').forEach(t => tags.add(t.textContent.trim()));
+    document.getElementById('stat-models').textContent = tags.size + '+';
+
+    // Count total business insight bullet points
+    const insights = document.querySelectorAll('.card-insight li').length;
+    document.getElementById('stat-insights').textContent = insights + '+';
+  });
+</script>
 </body>
 </html>
